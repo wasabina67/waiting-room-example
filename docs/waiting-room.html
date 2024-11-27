@@ -8,7 +8,14 @@
       let countdown = 10;
       const startCountdown = () => {
         const countdownEl = document.getElementById("countdown");
-        const interval = setInterval(() => {}, 1000);
+        const interval = setInterval(() => {
+          countdownEl.textContent = countdown;
+          if (countdown === 0) {
+            clearInterval(interval);
+            window.location.href = "index.html";
+          }
+          countdown--;
+        }, 1000);
       };
       window.onload = startCountdown;
     </script>
